@@ -1,0 +1,69 @@
+/* 建議預設先處使話 */
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+#app{
+    display: flex;
+}
+
+#menu{
+    width: 25vw;
+    /* 讓樣式高度符合網頁大小[滿版] */
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+#content{
+    width: 75vw;
+    background-color: rgb(202, 202, 202);
+}
+
+.photo{
+    width: 45%;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#menu h4{
+    margin: 10px;
+    font-size: 20px;
+}
+
+#menu p{
+    margin: 10px;
+    color:rgb(114, 113, 113);
+    font-family: fantasy;
+}
+
+#menu a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+#menu a:hover{
+    background-color:rgb(201, 201, 201);
+    color: black;
+}
+
+#menu a i {
+    margin-right: 10px;
+}
+
+#menu #footer{
+    margin-left: 10px;
+}
+
+#menu #footer i{
+    margin-right: 2px;
+}
+
+#menu #footer i:hover{
+    color: rgb(143, 142, 142);
+}
