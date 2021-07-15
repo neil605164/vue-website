@@ -1,54 +1,63 @@
 /* 建議預設先處使話 */
-*{
+
+* {
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
 }
 
-#app{
-    display: flex;
-}
-
-#menu{
-    width: 25vw;
-    /* 讓樣式高度符合網頁大小[滿版] */
-    height: 100vh;
+body {
     background-color: #f1f1f1;
 }
 
-#content{
-    width: 75vw;
-    background-color: rgb(202, 202, 202);
+#app {
+    display: flex;
 }
 
-.photo{
+#menu {
+    width: 300px;
+    /* 讓樣式高度符合網頁大小[滿版] */
+    height: 100vh;
+    background-color: white;
+    margin-left: 10%;
+}
+
+#content {
+    width: 75vw;
+    background-color: #f1f1f1;
+}
+
+.photo {
     width: 45%;
     border-radius: 4px;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#menu h4{
+#menu h4 {
     margin: 10px;
+    margin-left: 15px;
     font-size: 20px;
 }
 
-#menu p{
+#menu p {
     margin: 10px;
-    color:rgb(114, 113, 113);
+    margin-left: 15px;
+    color: rgb(114, 113, 113);
     font-family: fantasy;
 }
 
-#menu a{
+#menu a {
     display: block;
     padding: 10px;
+    padding-left: 15px;
     text-decoration: none;
     color: black;
 }
 
-#menu a:hover{
-    background-color:rgb(201, 201, 201);
+#menu a:hover {
+    background-color: rgb(201, 201, 201);
     color: black;
 }
 
@@ -56,14 +65,88 @@
     margin-right: 10px;
 }
 
-#menu #footer{
-    margin-left: 10px;
+#menu #footer {
+    margin-left: 15px;
 }
 
-#menu #footer i{
+#menu #footer i {
     margin-right: 2px;
 }
 
-#menu #footer i:hover{
+#menu #footer i:hover {
     color: rgb(143, 142, 142);
+}
+
+#content #title {
+    padding: 20px;
+}
+
+#content #title h1 {
+    font-size: 36px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+}
+
+#content #filter {
+    margin-left: 20px;
+    margin-right: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 6px solid rgb(175, 174, 174);
+}
+
+#content #filter span {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#content #filter button {
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    background-color: white;
+}
+
+#content #filter button:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+#content #filter button:active {
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+#content #filter button i {
+    margin-right: 10px;
+}
+
+#content #card {
+    margin-left: 20px;
+}
+
+#content #card .card-detail {
+    width: 33%;
+    float: left;
+    padding: 0px 5px 0px 5px;
+    margin-bottom: 5px;
+}
+
+#content #card .card-detail #card-content {
+    background-color: rgb(255, 255, 255);
+    padding: 3px;
+}
+
+#content #card img {
+    width: 100%;
+    height: 100%;
+}
+
+#content #card img:hover {
+    opacity: 0.6;
+}
+
+#content #card .qwe {
+    width: 100%;
+    height: 100%;
+    background-color: violet;
 }
