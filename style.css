@@ -163,8 +163,7 @@ body {
 
 #main #photo {
     display: inline-block;
-    margin-left: 20px;
-    padding: 15px 8px 20px 4px;
+    padding: 15px 8px 20px 24px;
     width: 100%;
 }
 
@@ -201,6 +200,7 @@ body {
 
 #about .gray {
     background-color: rgb(158, 158, 158);
+    margin-right: 20px;
 }
 
 #about .gray .dark-gray {
@@ -293,32 +293,141 @@ body {
     background-color: black;
 }
 
-#content {
+#main #content {
     display: block;
     background-color: rgb(158, 158, 158);
     padding: 0 20px;
 }
 
-#content h4 {
+#main #content h4 {
     margin: 10px 0;
+    padding-top: 20px;
     font-size: 20px;
 }
 
-#content #contract {
+#main #content #contract {
     display: flex;
 }
 
-#content #contract #connect {
+#main #content #contract #connect {
     width: 33.3333%;
     text-align: center;
 }
 
-#content #contract .gray {
+#main #content #contract .gray {
     background-color: rgb(95, 95, 95);
     color: white;
 }
 
-#content #contract .teal {
+#main #content #contract .teal {
     background-color: #009688;
     color: white;
+}
+
+#main #content #contract #connect .large {
+    font-size: 36px;
+    margin: 20px;
+    display: block;
+}
+
+#main #content #contract #connect p {
+    margin: 10px;
+}
+
+#main #content hr {
+    display: block;
+    margin: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+#main #main #content form label {
+    display: block;
+}
+
+#main #content form input {
+    display: block;
+    padding: 8px;
+    width: 100%;
+    border: none;
+}
+
+#main #content form #section {
+    margin-bottom: 15px;
+}
+
+#main #content form button {
+    border: none;
+    padding: 15px 12px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#main #content form button i {
+    padding-right: 20px;
+}
+
+#main #footer {
+    background-color: rgb(70, 70, 70);
+}
+
+#main #footer #footer-content {
+    display: flex;
+}
+
+#main #footer #footer-content #detail {
+    width: 33.33333%;
+    padding: 30px;
+    color: white;
+}
+
+#main #footer #footer-content #detail h3 {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+#main #footer #footer-content #detail p {
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+#main #footer #footer-content #detail ul li {
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+#main #footer #footer-content #detail ul li img {
+    float: left;
+    width: 70px;
+    padding-right: 15px;
+}
+
+#main #footer #footer-content #detail .bottonLine {
+    border-bottom: 1px solid #ddd
+}
+
+#main #footer #footer-content #detail .tag-black {
+    background-color: black;
+}
+
+#main #footer #footer-content #detail span {
+    display: inline-block;
+    font-size: 8px;
+}
+
+#main #footer #footer-content #detail .tag-grey {
+    background-color: grey;
+}
+
+#main #footer #footer-content #detail .tag-padding {
+    padding: 3px;
+    margin: 6px 0;
+}
+
+#main #end {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
 }
