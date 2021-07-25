@@ -68,7 +68,7 @@ body {
 }
 
 #menu #footer i {
-    margin-right: 2px;
+    margin-right: 4px;
 }
 
 #menu #footer i:hover {
@@ -109,13 +109,14 @@ body {
     padding: 15px;
     font-size: 16px;
     background-color: white;
+    margin-right: 5px;
 }
 
 #main #filter button:hover {
     background-color: rgb(192, 192, 192);
 }
 
-#main #filter button:active {
+#main #filter .buttonActive {
     color: white;
     background-color: rgb(0, 0, 0);
 }
