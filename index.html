@@ -18,23 +18,12 @@
             <h4>PORTGOLIO</h4>
             <p>Template by W3.CSS</p>
             <div id="list">
-                <a href="#title">
-                    <i class="fas fa-th-large"></i>PORTFOLIO
-                </a>
-                <a href="#about">
-                    <i class="fas fa-user"></i>ABOUT
-                </a>
-                <a href="#content">
-                    <i class="fas fa-envelope"></i>CONTENT
+                <a :href="`#${item.router}`" v-for="item in menuList" :key="item.id">
+                    <i :class="`${ item.icon }`"></i>{{ item.name }}
                 </a>
             </div>
             <div id="footer">
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-snapchat"></i>
-                <i class="fab fa-pinterest-p"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-linkedin-in"></i>
+                <i :class="`${item}`" v-for="item in footerIcon" :key="item"></i>
             </div>
         </div>
         <div id="main">
@@ -43,10 +32,9 @@
             </div>
             <div id="filter">
                 <span>Filter:</span>
-                <button>All</button>
-                <button><i class="far fa-gem"></i>Design</button>
-                <button><i class="far fa-images"></i>Photos</button>
-                <button><i class="fas fa-map-pin"></i></i>Art</button>
+                <button v-for="item in filter" :key="item.id" @click="updateFilterStatus(item)" :class="{buttonActive : item.status}">
+                    <i :class="`${item.icon}`" v-if="item.icon != ''"></i>{{ item.name }}
+                </button>
             </div>
             <div id="card">
                 <div id="card-1" class="card-detail">
