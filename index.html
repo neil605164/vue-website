@@ -32,67 +32,22 @@
             </div>
             <div id="filter">
                 <span>Filter:</span>
-                <button v-for="item in filter" :key="item.id" @click="updateFilterStatus(item)" :class="{buttonActive : item.status}">
+                <button v-for="item in filter" :key="item.id" @click="filterActive = item.name" :class="{buttonActive : filterActive === item.name}">
                     <i :class="`${item.icon}`" v-if="item.icon != ''"></i>{{ item.name }}
                 </button>
             </div>
             <div id="card">
-                <div id="card-1" class="card-detail">
-                    <img src="./images/montain.jpeg" alt="">
+                <div id="card-content" class="card-detail" v-for="item in filterCardList" :key="item.id">
+                    <img :src="`.${item.image}`" alt="">
                     <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-2" class="card-detail">
-                    <img src="./images/lights.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-3" class="card-detail">
-                    <img src="./images/nature.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-4" class="card-detail">
-                    <img src="./images/p1.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-5" class="card-detail">
-                    <img src="./images/p2.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-6" class="card-detail">
-                    <img src="./images/p3.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                    </div>
-                </div>
-                <div id="card-7" class="card-detail">
-                    <img src="./images/montain.jpeg" alt="">
-                    <div id="card-content">
-                        <p>Lorem Ipsum</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                        <p>{{ item.title }}</p>
+                        <p>{{ item.content }}</p>
                     </div>
                 </div>
             </div>
             <div id="photo">
-                <div class="img-photo">
-                    <img src="./images/avatar_g.jpeg" alt="">
-                </div>
-                <div class="img-photo">
-                    <img src="./images/me2.jpeg" alt="">
+                <div class="img-photo" v-for="item in photoList" :key="item">
+                    <img :src="`.${item}`" alt="">
                 </div>
             </div>
             <div id="about">
@@ -101,18 +56,12 @@
                     condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
                 <hr>
                 <h4>Technical Skills</h4>
-                <p>Photography</p>
-                <div class="gray">
-                    <div class="dark-gray" style="width: 95%;">95%</div>
-                </div>
-                <p>Web Design</p>
-                <div class="gray">
-                    <div class="dark-gray" style="width: 85%;">85%</div>
-                </div>
-                <p>Photoshop</p>
-                <div class="gray">
-                    <div class="dark-gray" style="width: 80%;">80%</div>
-                </div>
+                <template v-for="item in progessList">
+                    <p>{{ item.name }}</p>
+                    <div class="gray">
+                        <div class="dark-gray" :style="{width:item.progess + '%'}">{{ item.progess }}%</div>
+                    </div>
+                </template>
                 <p>
                     <button><i class="fas fa-download"></i> Download Resume</button>
                 </p>
@@ -121,54 +70,21 @@
             <div id="charge">
                 <h4>How much I charge</h4>
                 <div id="subject">
-                    <div id="plan" class="basic">
-                        <ul>
-                            <li class="black large">Basic</li>
-                            <li>Web Design</li>
-                            <li>Photography</li>
-                            <li>1GB Storage</li>
-                            <li>Mail Support</li>
-                            <li>
-                                <h2>$ 10</h2>
-                                <span>per month</span>
-                            </li>
-                            <li>
-                                <button>Sign Up</button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="plan" class="pro">
-                        <ul>
-                            <li class="teal large">Pro</li>
-                            <li>Web Design</li>
-                            <li>Photography</li>
-                            <li>50GB Storage</li>
-                            <li>Endless Support</li>
-                            <li>
-                                <h2>$ 25</h2>
-                                <span>per month</span>
-                            </li>
-                            <li>
-                                <button>Sign Up</button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="plan" class="premium">
-                        <ul>
-                            <li class="black large">Premium</li>
-                            <li>Web Design</li>
-                            <li>Photography</li>
-                            <li>Unlimited Storage</li>
-                            <li>Endless Support</li>
-                            <li>
-                                <h2>$ 25</h2>
-                                <span>per month</span>
-                            </li>
-                            <li>
-                                <button>Sign Up</button>
-                            </li>
-                        </ul>
-                    </div>
+                    <template v-for="item in planList">
+                        <div id="plan" :class="item.title">
+                            <ul>
+                                <li class="large" :class="item.title === 'Pro' ? 'teal' : 'black'">{{item.title}}</li>
+                                <li v-for="content in item.contents">{{content}}</li>
+                                <li>
+                                    <h2>$ {{item.charge}}</h2>
+                                    <span>per month</span>
+                                </li>
+                                <li>
+                                    <button>Sign Up</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </template>
                 </div>
             </div>
             <div id="content">
@@ -191,17 +107,17 @@
                 <form action="">
                     <div id="section">
                         <label for="name">Name</label>
-                        <input type="text" id="name">
+                        <input type="text" id="name" v-model="fromList.name">
                     </div>
                     <div id="section">
                         <label for="email">Email</label>
-                        <input type="text" id="email">
+                        <input type="text" id="email" v-model="fromList.email">
                     </div>
                     <div id="section">
                         <label for="message">Message</label>
-                        <input type="text" id="message">
+                        <input type="text" id="message" v-model="fromList.message">
                     </div>
-                    <button>
+                    <button @click.prevent="SendFormData()">
                         <i class="fa fa-paper-plane"></i>Send Message
                     </button>
                 </form>
