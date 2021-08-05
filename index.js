@@ -1,3 +1,56 @@
+Vue.component("perpage", {
+    props: ["page", "totalCount", "limit"],
+    data: function() {
+        return {
+            pageActive: 1
+        }
+    },
+    template: `
+    <div id="page">
+        <ul>
+            <li @click="preventPage">«</li>
+            <li v-for="page in totalPage" :key="page" @click.prevent="currentPage(page)" :class="{buttonActive : pageActive === page}">{{page}}</li>
+            <li @click="nextPage">»</li>
+        </ul>
+    </div>
+    `,
+    methods: {
+        // 前一頁
+        preventPage() {
+            currentPage = this.pageActive - 1
+            if (currentPage <= 1) {
+                currentPage = 1
+            }
+            this.$emit('page', currentPage)
+            this.pageActive = currentPage
+        },
+        // 下一頁
+        nextPage() {
+            currentPage = this.pageActive + 1
+            if (currentPage >= Math.ceil(this.totalCount / this.limit)) {
+                currentPage = Math.ceil(this.totalCount / this.limit)
+            }
+            this.$emit('page', currentPage)
+            this.pageActive = currentPage
+        },
+        // 當前頁數
+        currentPage(page) {
+            this.emitPage = page
+            this.$emit('page', this.pageActive = page)
+        }
+    },
+    computed: {
+        // 計算總頁數
+        totalPage() {
+            if (this.totalCount == undefined) {
+                return 0
+            }
+
+            return Math.ceil(this.totalCount / this.limit)
+        },
+    }
+})
+
 var app = new Vue({
     el: "#app",
     data: {
@@ -135,24 +188,37 @@ var app = new Vue({
             name: "",
             email: "",
             message: "",
-        }
+        },
+        page: 1,
+        totalCount: 0,
+        limit: 4,
+    },
+    mounted() {
+        this.totalCount = this.cardlist.length
     },
     // 計算,篩選,過濾資料後，在渲染到網頁上
     computed: {
         filterCardList() {
             vm = this
 
+            begin = (vm.page - 1) * vm.limit
+            end = vm.limit + begin
+            newCardList = vm.cardlist.slice(begin, end)
+
             if (vm.filterActive === "ALL") {
-                return vm.cardlist
+                return newCardList
             }
 
-            return vm.cardlist.filter(item => item.tag === vm.filterActive)
-        },
+            return newCardList.filter(item => item.tag === vm.filterActive)
+        }
     },
     methods: {
         SendFormData() {
             vm = this
             console.log(vm.fromList.email, vm.fromList.message, vm.fromList.name, "Send Successfully")
-        }
+        },
+        newPage(page) {
+            this.page = page
+        },
     },
 })
