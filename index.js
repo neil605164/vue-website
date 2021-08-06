@@ -17,13 +17,21 @@ Vue.component("perpage", {
     methods: {
         // 前一頁
         preventPage() {
-            this.$emit('page', this.pageActive - 1)
-            this.pageActive = this.pageActive - 1
+            currentPage = this.pageActive - 1
+            if (currentPage <= 1) {
+                currentPage = 1
+            }
+            this.$emit('page', currentPage)
+            this.pageActive = currentPage
         },
         // 下一頁
         nextPage() {
-            this.$emit('page', this.pageActive + 1)
-            this.pageActive = this.pageActive + 1
+            currentPage = this.pageActive + 1
+            if (currentPage >= Math.ceil(this.totalCount / this.limit)) {
+                currentPage = Math.ceil(this.totalCount / this.limit)
+            }
+            this.$emit('page', currentPage)
+            this.pageActive = currentPage
         },
         // 當前頁數
         currentPage(page) {
