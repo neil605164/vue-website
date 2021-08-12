@@ -45,6 +45,8 @@
                     </div>
                 </div>
             </div>
+            <div class="clear"></div>
+            <perpage :page="page" :total-count="totalCount" :limit="limit" @page="newPage"></perpage>
             <div id="photo">
                 <div class="img-photo" v-for="item in photoList" :key="item">
                     <img :src="`.${item}`" alt="">
