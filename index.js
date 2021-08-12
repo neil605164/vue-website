@@ -191,7 +191,7 @@ var app = new Vue({
         },
         page: 1,
         totalCount: 0,
-        limit: 3,
+        limit: 4,
     },
     mounted() {
         this.totalCount = this.cardlist.length
